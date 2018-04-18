@@ -5,6 +5,14 @@ public class Service {
 	
 	HashMap<Integer, Accounts> hmap= new HashMap<Integer, Accounts>();
 	
+	public HashMap<Integer, Accounts> getHmap() {
+		return hmap;
+	}
+
+	public void setHmap(HashMap<Integer, Accounts> hmap) {
+		this.hmap = hmap;
+	}
+
 	private static int uniqueID = 0;
 	
 	public void addAccount (Accounts newAccount) 
