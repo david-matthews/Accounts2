@@ -35,19 +35,8 @@ public class Service {
 	}
 	
 	
-
-	public int getQuantityByFirstName(String firstName) {
-		
-		int quantity = 0;
-		
-		for (Accounts iter: hmap.values())
-		{
-			if (iter.getFirstName()==firstName)
-			{
-				quantity++;
-			}
-		}
-		return quantity;
+	public int getQuantityByFirstName(String firstName) {		
+		return (int) hmap.values().stream().filter(x -> firstName.equals(x.getFirstName())).count();
 	}
 		
 }
