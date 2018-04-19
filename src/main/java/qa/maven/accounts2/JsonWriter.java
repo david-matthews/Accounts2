@@ -2,17 +2,21 @@ package qa.maven.accounts2;
 
 import com.google.gson.Gson;
 
+import java.util.HashMap;
+
 public class JsonWriter {
 
-public static void jsonwrite () {
-	Accounts person1 = new Accounts ("David", "Matthews", 12345);
+	private Gson gson;
 	
-	
-	Service map = new Service();
-	
-	map.addAccount(person1);
-	Gson gson = new Gson();
-	String json = gson.toJson(map.hmap);
-	System.out.println(json);
+	public JsonWriter() {
+		
+		this.gson = new Gson();
 	}
-}
+	
+	public String getJson(HashMap obj) {
+		return gson.toJson(obj);	}
+
+	
+	
+	}
+

@@ -11,7 +11,7 @@ public class TestService {
 
 	@Test
 	public void TestAddAccounts() {
-		Accounts testAccount = new Accounts("David","Matthews",12345);
+		Accounts testAccount = new Accounts("David","Matthews","12345");
 		Service testService = new Service();
 		testService.addAccount(testAccount);
 		assertEquals(testService.getHmap().size(),1);
@@ -19,36 +19,25 @@ public class TestService {
 	
 	@Test
 	public void TestRemoveAccounts() {
-		Accounts testAccount1 = new Accounts("Ben","Green",54321);
+		Accounts testAccount1 = new Accounts("Ben","Green","54321");
 		Service testService1 = new Service();
 		testService1.addAccount(testAccount1);
 		testService1.removeAcount(1);
 		assertEquals(testService1.getHmap().size(),0);
 		}
+
+	
+
 	
 	@Test
-	public void JsonConversionTest() {
+	public void getJson() {
 		
-//	JsonWriter jsontest = new JsonWriter();
-//	JsonWriter.jsonwrite();
-//	String actualJson = jsonwrite().json;
-		
-		
-	
-		Accounts testAccount = new Accounts("David","Matthews",12345);
-		Service testService2 = new Service();
-		testService2.addAccount(testAccount);
-		ObjectWriter ob = new ObjectMapper().writer();
-		
-		
-		try {
-			String json = ob.writeValueAsString(testService2.getHmap());
-			System.out.println(json);
-			assertEquals("{\"0\":{\"firstName\":\"David\",\"surName\":\"Matthews\",\"accountNumber\":12345,\"ID\":0}}",json);
-		
-		}
-		catch (JsonProcessingException e) {
-			e.printStackTrace();
+		Service service = new Service();
+		Accounts testing3 = new Accounts("David", "Matthews", "12345");
+		service.addAccount(testing3);
+		JsonWriter util = new JsonWriter();
+		String compare = "{\"1\":{\"firstName\":\"David\",\"surName\":\"Matthews\",\"accountNumber\":\"12345\",\"ID\":0}}";
+		String actual = util.getJson(service.getHmap());
+		assertEquals(actual, compare);
 	}
-}
 }
