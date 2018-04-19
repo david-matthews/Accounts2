@@ -33,5 +33,21 @@ public class Service {
 		hmap.remove(SelectID);
 		}
 	}
+	
+	
+
+	public int getQuantityByFirstName(String firstName) {
+		
+		int quantity = 0;
+		
+		for (Accounts iter: hmap.values())
+		{
+			if (iter.getFirstName()==firstName)
+			{
+				quantity++;
+			}
+		}
+		return quantity;
+	}
 		
 }
