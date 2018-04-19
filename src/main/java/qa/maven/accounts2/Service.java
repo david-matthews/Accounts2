@@ -33,5 +33,10 @@ public class Service {
 		hmap.remove(SelectID);
 		}
 	}
+	
+	
+	public int getQuantityByFirstName(String firstName) {		
+		return (int) hmap.values().stream().filter(x -> firstName.equals(x.getFirstName())).count();
+	}
 		
 }
