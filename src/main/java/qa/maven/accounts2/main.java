@@ -6,13 +6,16 @@ import org.skyscreamer.*;
 public class main {
 	public static void main(String[]args)
 	{
-		Accounts person1 = new Accounts ("David", "Matthews", 12345);
+		Accounts person1 = new Accounts ("David", "Matthews", "12345");
 	
 	
 	Service map = new Service();
 	
 	map.addAccount(person1);
 
+	JsonWriter util = new JsonWriter();
+	String json = util.getJson(map.getHmap());
+	System.out.println(json);
 
 	}
 }

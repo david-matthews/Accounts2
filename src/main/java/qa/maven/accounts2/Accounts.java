@@ -3,10 +3,10 @@ package qa.maven.accounts2;
 public class Accounts {
 	private String firstName;
 	private String surName;
-	private int accountNumber;
+	private String accountNumber;
 	private int ID;
 
-	public Accounts(String firstName, String surName, int accountNumber) {
+	public Accounts(String firstName, String surName, String accountNumber) {
 	this.firstName = firstName;
 	this.surName = surName;
 	this.accountNumber = accountNumber;
@@ -30,12 +30,12 @@ public class Accounts {
 		this.firstName = firstName;
 	}
 	
-	public int getAccountNumber() {
+	public String getAccountNumber() {
 		return accountNumber; 
 		
 	}
 	
-	public void setAccountNumber(int accountNumber) {
+	public void setAccountNumber(String accountNumber) {
 		this.accountNumber = accountNumber;
 	}
 	

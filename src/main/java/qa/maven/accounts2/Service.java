@@ -27,6 +27,11 @@ public class Service {
 	}
 	
 	public void removeAcount (int SelectID) {
+		boolean IDexists = hmap.containsKey(SelectID);
+		
+		if(IDexists) {
 		hmap.remove(SelectID);
+		}
 	}
+		
 }
